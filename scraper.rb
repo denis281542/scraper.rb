@@ -9,8 +9,8 @@ def scraper
   news_listings = parsed_page.css('div.news-main') # 19 news
   news_listings.each do |news_listing|
     job = {
-      body: news_listings.css('div.news-story').text
- 
+      title: news_listings.css('div.news-title')
+      body: news_listings.css('div.news-story').text,
     }
   end
   byebug
