@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 
 # Fetch and parse HTML document
-doc = Nokogiri::HTML(open('yandex.ru'))
+doc = Nokogiri::HTML(open('yandex.com'))
 
 puts "div.product-price"
 doc.css('div.product-price').each do |link|
