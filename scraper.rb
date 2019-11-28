@@ -1,19 +1,10 @@
 require 'nokogiri'
-require 'httparty'
-require 'byebug'
+require 'open-uri'
 
-def scraper
-  url = "http://vsalde.ru/"
-  unparsed_page =  HTTParty.get(url)
-  parsed_page = Nokogiri::HTML(unparsed_page)
-  news_listings = parsed_page.css('div.news-main') # 19 news
-  news_listings.each do |news_listing|
-    job = {
-      title: news_listings.css('div.news-title')
-      body: news_listings.css('div.news-story').text,
-    }
-  end
-  byebug
+# Fetch and parse HTML document
+doc = Nokogiri::HTML(open('https://www.mvideo.ru/product-list-page-cls?q=macbook&region_id=5&limit=12&category_id=cat2_cis_0000000130'))
+
+puts "div.product-price"
+doc.css('div.product-price').each do |link|
+  puts link.text
 end
-
-scraper
