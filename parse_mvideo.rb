@@ -10,7 +10,7 @@ doc.css(".showcompare").each do |items|
   title = items.css(".product-tile-title").text
   price = items.css(".sel-product-tile-price").text[/[0-9\.]+/]
   puts  "#{title} - #{price}"
-  #puts items.at_css(".line-clamp-2")[:href]
+  puts items.at_css(".sel-product-tile-title")[:href]
 end
 
  
