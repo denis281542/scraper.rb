@@ -7,5 +7,7 @@ doc = Nokogiri::HTML(open(url))
 puts  doc.at_css(".header").text
 puts  doc.at_css(".HH-LinkModifier").text #vakancy
 puts  doc.at_css(".vacancy-serp-item__compensation").text #salary
+puts  doc.at_css(".HH-AnonymousIndexAnalytics-Recommended-Company").text #company
+
 
 
