@@ -4,9 +4,9 @@ require 'open-uri'
 
 url = "https://ekaterinburg.hh.ru/search/vacancy?area=3&st=searchVacancy&text=ruby+on+rails"
 doc = Nokogiri::HTML(open(url))
-puts  doc.css(".vacancy-serp-item").text
-  doc.css(".vacancy-serp-item").each |vacancy| do
-
+puts  doc.css(".header").text
+doc.css(".vacancy-serp-item").each do |items|
+  vakancy = doc.css(".HH-LinkModifier").text 
   end
 
 
