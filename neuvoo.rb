@@ -7,8 +7,11 @@ doc = Nokogiri::HTML(open(url))
 doc.css(".header").text
 doc.css(".vacancy-serp-item").each do |items|
   vakancy = items.css(".HH-LinkModifier").text
-  salary = items.css(".vacancy-serp-item__compensation").text 
-  puts  "#{vakancy} - #{salary}"
+  salary = items.css(".vacancy-serp-item__compensation").text
+  date_of_publication = items.css(".vacancy-serp-item__publication-date").text #
+  puts "#{vakancy} - #{salary}"
+  puts "#{date_of_publication}"
+  puts "======="
 end
 
 
