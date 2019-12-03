@@ -2,7 +2,7 @@ require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
 
-url = "https://ekaterinburg.hh.ru/search/vacancy?area=3&st=searchVacancy&text=ruby+on+rails"
+url = "https://hh.ru/search/vacancy?area=113&st=searchVacancy&text=ruby+on+rails&customDomain=1"
 doc = Nokogiri::HTML(open(url))
 doc.css(".vacancy-serp-item").each do |items|
   vakancy = items.css(".HH-LinkModifier").text
