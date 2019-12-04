@@ -7,5 +7,7 @@ doc = Nokogiri::HTML(open(url))
 doc.css(".inner").each do |items|
   posi = items.css(".title").text 
   salary = items.css(".count").text 
-  puts "#{posi} - #{salary}"
+  unless salary.empty?
+      puts "#{posi} - #{salary}"
+  end
 end
