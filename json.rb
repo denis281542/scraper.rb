@@ -1,20 +1,23 @@
+require 'rubygems'
 require 'json'
-  my_object = { :array => [1, 2, 3, { :sample => "hash"} ], :foo => "bar" }
-puts JSON.pretty_generate(my_object)
+require 'rest-client'
 
-class PrettyJsonResponse
-  def initialize(app)
-    @app = app
-  end
+class Rest
 
-  def call(env)
-    status, headers, response = @app.call(env)
-    if headers["Content-Type"] =~ /^application\/json/
-      obj = JSON.parse(response.body)
-      pretty_str = JSON.pretty_unparse(obj)
-      response = [pretty_str]
-      headers["Content-Length"] = pretty_str.bytesize.to_s
+  def self.getData
+
+    response = RestClient.get 'http://jsonplaceholder.typicode.com/posts'
+    response = JSON.parse(response)
+
+    File.open('/Users/robertreed/RubymineProjects/draft/posts.json', 'w') do |f|
+      f.write(response.to_json)
     end
-    [status, headers, response]
+
+
+
+    puts response   
   end
+
+  getData
+
 end
