@@ -2,7 +2,7 @@ require 'rubygems'
 require 'json'
 require 'rest-client'
 
-class Rest
+class RestResponse
 
   def self.getData
 
