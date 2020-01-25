@@ -6,7 +6,7 @@ class RestResponse
 
   def self.getData
 
-    response = RestClient.get 'http://ya.ru'
+    response = RestClient.get 'http://jsonplaceholder.typicode.com/posts'
     response = JSON.parse(response)
 
     File.open('/Users/robertreed/RubymineProjects/draft/posts.json', 'w') do |f|
