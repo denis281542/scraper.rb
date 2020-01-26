@@ -2,11 +2,11 @@ require 'rubygems'
 require 'json'
 require 'rest-client'
 
-class RestResponse
+class Rest
 
   def self.getData
 
-    response = RestClient.get 'http://jsonplaceholder.typicode.com/posts'
+    response = RestClient.get 'http://sonplaceholder.typicode.com/posts'
     response = JSON.parse(response)
 
     File.open('/Users/robertreed/RubymineProjects/draft/posts.json', 'w') do |f|
