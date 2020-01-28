@@ -18,5 +18,3 @@ class Rest
     puts response   
   end
 
-
-end
