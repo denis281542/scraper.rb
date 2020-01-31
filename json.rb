@@ -18,6 +18,6 @@ class Rest
     puts response   
   end
 
-  getDatas
+  getDatascs;l
 
 end
