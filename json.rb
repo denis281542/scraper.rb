@@ -18,6 +18,6 @@ class Rest
     puts response   
   end
 
-  getData
+  getData5
 
 end
