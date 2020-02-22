@@ -20,4 +20,4 @@ class Rest
 
   getData
 
-end   s
+end   
