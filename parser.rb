@@ -3,7 +3,8 @@ require 'faraday'
 require 'nokogiri'
 require 'open-uri'
 
-url = "https://twitter.com/elonmusk"
-#html = open(response)
-doc = Nokogiri::HTML(open(url))
-puts doc.css('//div//p')
+conn = Faraday.new(:url => 'http://sushi.com') do |faraday|
+  faraday.request  :url_encoded             # form-encode POST params
+  faraday.response :logger                  # log requests to STDOUT
+  faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
+end
